@@ -1,6 +1,5 @@
 package br.com.mastersys.domain;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +16,6 @@ public class Modalidade {
 
     private String nome;
 
-    private Boolean ativo = true;
+    private Boolean ativa = true;
 
 }
