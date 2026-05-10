@@ -1,0 +1,88 @@
+@baseUrl = http://localhost:8081
+
+### Cadastrar aluno
+POST {{baseUrl}}/alunos
+Content-Type: application/json
+
+{
+  "nome": "João da Silva",
+  "dataNascimento": "1995-08-15",
+  "sexo": "M",
+  "telefone": "11987654321",
+  "celular": "11987654321",
+  "email": "joao@email.com",
+  "observacao": "Aluno dedicado e participativo.",
+  "endereco": "Rua das Flores",
+  "numero": "123",
+  "complemento": "Apto 45",
+  "bairro": "Jardim Primavera",
+  "cidade": "São Paulo",
+  "estado": "SP",
+  "cep": "01234-567"
+}
+
+### Listar alunos
+GET {{baseUrl}}/alunos
+
+### Listar alunos com paginação
+GET {{baseUrl}}/alunos?page=0&size=10&sort=nome,asc
+
+### Buscar aluno por ID
+GET {{baseUrl}}/alunos/1
+
+### Atualizar aluno
+PUT {{baseUrl}}/alunos/1
+Content-Type: application/json
+
+{
+  "nome": "João da Silva Atualizado",
+  "dataNascimento": "1995-08-15",
+  "sexo": "M",
+  "telefone": "11987654321",
+  "celular": "11987654321",
+  "email": "joao@email.com",
+  "observacao": "Aluno dedicado e participativo.",
+  "endereco": "Rua das Flores",
+  "numero": "123",
+  "complemento": "Apto 45",
+  "bairro": "Jardim Primavera",
+  "cidade": "São Paulo",
+  "estado": "SP",
+  "cep": "01234-567"
+}
+
+### Deletar aluno
+DELETE {{baseUrl}}/alunos/1
+
+### Cadastrar um aluno com dados inválidos
+POST {{baseUrl}}/alunos
+Content-Type: application/json
+
+{
+  "nome": "",
+  "dataNascimento": "1995-08-15",
+  "sexo": "M",
+  "telefone": "11987654321",
+  "celular": "",
+  "email": "joao@email.com",
+  "observacao": "Aluno dedicado e participativo.",
+  "endereco": "Rua das Flores",
+  "numero": "123",
+  "complemento": "Apto 45",
+  "bairro": "Jardim Primavera",
+  "cidade": "São Paulo",
+  "estado": "SP",
+  "cep": "01234-567"
+}
+
+### Listar por nome
+GET {{baseUrl}}/alunos?nome=joão&page=0&size=10&sort=nome,asc
+
+### Listar por cidade
+GET {{baseUrl}}/alunos?cidade=são paulo&page=0&size=10&sort=nome,asc
+
+### Listar por estado
+GET {{baseUrl}}/alunos?estado=SP&page=0&size=10&sort=nome,asc
+
+### Listar por email
+GET {{baseUrl}}/alunos?email=joao@email.com&page=0&size=10&sort=nome,asc
