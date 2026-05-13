@@ -12,5 +12,4 @@ public interface AlunoRepository extends JpaRepository<Aluno, Long>, JpaSpecific
     boolean existsByEmailAndIdNot(String email, Long id);
 
     Slice<Aluno> findAllBy(Pageable pageable);
-
 }
