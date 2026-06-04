@@ -28,14 +28,16 @@ public class AlunoController {
     }
 
     @PostMapping
-    public ResponseEntity<AlunoResponse> cadastrar(@RequestBody @Valid AlunoRequest request, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<AlunoResponse> cadastrar(@RequestBody @Valid AlunoRequest request,
+                                                   UriComponentsBuilder uriBuilder) {
         AlunoResponse response = alunoService.cadastrar(request);
         URI uri = uriBuilder.path("/alunos/{id}").buildAndExpand(response.id()).toUri();
         return ResponseEntity.created(uri).body(response);
     }
 
     @GetMapping
-    public ResponseEntity<Page<AlunoResponse>> listar(AlunoFiltroRequest filtro, @PageableDefault(size = 10, sort = "nome") Pageable pageable) {
+    public ResponseEntity<Page<AlunoResponse>> listar(AlunoFiltroRequest filtro,
+                                                      @PageableDefault(size = 10, sort = "nome") Pageable pageable) {
         Page<AlunoResponse> page = alunoService.listar(filtro, pageable);
         return ResponseEntity.ok(page);
     }
