@@ -40,6 +40,7 @@ public class Aluno {
     @Column(name = "atualizado_em")
     private LocalDateTime atualizadoEm;
 
+    // Define automaticamente a data de criação antes de salvar no banco.
     @PrePersist
     public void prePersist() {
         criadoEm = LocalDateTime.now();
